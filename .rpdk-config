@@ -1,0 +1,10 @@
+{
+    "typeName": "AWSCustom::EBSCustom::EBSSnapshotCustom",
+    "language": "python37",
+    "runtime": "python3.7",
+    "entrypoint": "awscustom_ebscustom_ebssnapshotcustom.handlers.resource",
+    "testEntrypoint": "awscustom_ebscustom_ebssnapshotcustom.handlers.test_entrypoint",
+    "settings": {
+        "use_docker": true
+    }
+}
