@@ -1,6 +1,6 @@
 # AWSCustom::EBSCustom::EBSSnapshotCustom
 
-An example resource schema demonstrating some basic constructs and validation rules.
+Custom resource to store in AWS Config EBS Snapshot information
 
 ## Syntax
 
@@ -12,14 +12,14 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
     "Type" : "AWSCustom::EBSCustom::EBSSnapshotCustom",
     "Properties" : {
-        "<a href="#title" title="Title">Title</a>" : <i>String</i>,
-        "<a href="#coversheetincluded" title="CoverSheetIncluded">CoverSheetIncluded</a>" : <i>Boolean</i>,
-        "<a href="#duedate" title="DueDate">DueDate</a>" : <i>String</i>,
-        "<a href="#approvaldate" title="ApprovalDate">ApprovalDate</a>" : <i>String</i>,
-        "<a href="#memo" title="Memo">Memo</a>" : <i><a href="secondcopyofmemo.md">SecondCopyOfMemo</a></i>,
-        "<a href="#secondcopyofmemo" title="SecondCopyOfMemo">SecondCopyOfMemo</a>" : <i><a href="secondcopyofmemo.md">SecondCopyOfMemo</a></i>,
-        "<a href="#testcode" title="TestCode">TestCode</a>" : <i>String</i>,
-        "<a href="#authors" title="Authors">Authors</a>" : <i>[ String, ... ]</i>
+        "<a href="#description" title="Description">Description</a>" : <i>String</i>,
+        "<a href="#ownerid" title="OwnerId">OwnerId</a>" : <i>String</i>,
+        "<a href="#encrypted" title="Encrypted">Encrypted</a>" : <i>Boolean</i>,
+        "<a href="#progress" title="Progress">Progress</a>" : <i>String</i>,
+        "<a href="#starttime" title="StartTime">StartTime</a>" : <i>String</i>,
+        "<a href="#state" title="State">State</a>" : <i>String</i>,
+        "<a href="#volumeid" title="VolumeId">VolumeId</a>" : <i>String</i>,
+        "<a href="#volumesize" title="VolumeSize">VolumeSize</a>" : <i>String</i>
     }
 }
 </pre>
@@ -29,36 +29,41 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 <pre>
 Type: AWSCustom::EBSCustom::EBSSnapshotCustom
 Properties:
-    <a href="#title" title="Title">Title</a>: <i>String</i>
-    <a href="#coversheetincluded" title="CoverSheetIncluded">CoverSheetIncluded</a>: <i>Boolean</i>
-    <a href="#duedate" title="DueDate">DueDate</a>: <i>String</i>
-    <a href="#approvaldate" title="ApprovalDate">ApprovalDate</a>: <i>String</i>
-    <a href="#memo" title="Memo">Memo</a>: <i><a href="secondcopyofmemo.md">SecondCopyOfMemo</a></i>
-    <a href="#secondcopyofmemo" title="SecondCopyOfMemo">SecondCopyOfMemo</a>: <i><a href="secondcopyofmemo.md">SecondCopyOfMemo</a></i>
-    <a href="#testcode" title="TestCode">TestCode</a>: <i>String</i>
-    <a href="#authors" title="Authors">Authors</a>: <i>
-      - String</i>
+    <a href="#description" title="Description">Description</a>: <i>String</i>
+    <a href="#ownerid" title="OwnerId">OwnerId</a>: <i>String</i>
+    <a href="#encrypted" title="Encrypted">Encrypted</a>: <i>Boolean</i>
+    <a href="#progress" title="Progress">Progress</a>: <i>String</i>
+    <a href="#starttime" title="StartTime">StartTime</a>: <i>String</i>
+    <a href="#state" title="State">State</a>: <i>String</i>
+    <a href="#volumeid" title="VolumeId">VolumeId</a>: <i>String</i>
+    <a href="#volumesize" title="VolumeSize">VolumeSize</a>: <i>String</i>
 </pre>
 
 ## Properties
 
-#### Title
+#### Description
 
-The title of the TPS report is a mandatory element.
+Description of the snapshot
 
-_Required_: Yes
+_Required_: No
 
 _Type_: String
 
-_Minimum_: <code>20</code>
+_Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-_Maximum_: <code>250</code>
+#### OwnerId
+
+Account ID of the owner of the snapshot
+
+_Required_: No
+
+_Type_: String
 
 _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-#### CoverSheetIncluded
+#### Encrypted
 
-Required for all TPS Reports submitted after 2/19/1999
+Weather the snapshot is encrypted or not
 
 _Required_: No
 
@@ -66,7 +71,9 @@ _Type_: Boolean
 
 _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-#### DueDate
+#### Progress
+
+Progress of the snapshot
 
 _Required_: No
 
@@ -74,7 +81,9 @@ _Type_: String
 
 _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-#### ApprovalDate
+#### StartTime
+
+ID of The Snapshot
 
 _Required_: No
 
@@ -82,37 +91,33 @@ _Type_: String
 
 _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-#### Memo
+#### State
+
+State of the snapshot
 
 _Required_: No
-
-_Type_: <a href="secondcopyofmemo.md">SecondCopyOfMemo</a>
-
-_Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
-
-#### SecondCopyOfMemo
-
-_Required_: No
-
-_Type_: <a href="secondcopyofmemo.md">SecondCopyOfMemo</a>
-
-_Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
-
-#### TestCode
-
-_Required_: Yes
 
 _Type_: String
 
-_Allowed Values_: <code>NOT_STARTED</code> | <code>CANCELLED</code>
-
 _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-#### Authors
+#### VolumeId
+
+ID of The Volume
 
 _Required_: No
 
-_Type_: List of String
+_Type_: String
+
+_Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+#### VolumeSize
+
+ID of The Volume
+
+_Required_: No
+
+_Type_: String
 
 _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
@@ -120,7 +125,7 @@ _Update requires_: [No interruption](https://docs.aws.amazon.com/AWSCloudFormati
 
 ### Ref
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, Ref returns the TPSCode.
+When you pass the logical ID of this resource to the intrinsic `Ref` function, Ref returns the SnapshotId.
 
 ### Fn::GetAtt
 
@@ -128,7 +133,7 @@ The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of
 
 For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).
 
-#### TPSCode
+#### SnapshotId
 
-A TPS Code is automatically generated on creation and assigned as the unique identifier.
+ID of The Snapshot
 

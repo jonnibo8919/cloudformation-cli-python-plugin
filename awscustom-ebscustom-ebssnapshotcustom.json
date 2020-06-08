@@ -1,105 +1,53 @@
 {
     "typeName": "AWSCustom::EBSCustom::EBSSnapshotCustom",
-    "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+    "description": "Custom resource to store in AWS Config EBS Snapshot information",
     "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-    "definitions": {
-        "InitechDateFormat": {
-            "$comment": "Use the `definitions` block to provide shared resource property schemas",
-            "type": "string",
-            "format": "date-time"
-        },
-        "Memo": {
-            "type": "object",
-            "properties": {
-                "Heading": {
-                    "type": "string"
-                },
-                "Body": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        }
-    },
     "properties": {
-        "TPSCode": {
-            "description": "A TPS Code is automatically generated on creation and assigned as the unique identifier.",
-            "type": "string",
-            "pattern": "^[A-Z]{3,5}[0-9]{8}-[0-9]{4}$"
+        "Description": {
+            "description": "Description of the snapshot",
+            "type": "string"
         },
-        "Title": {
-            "description": "The title of the TPS report is a mandatory element.",
-            "type": "string",
-            "minLength": 20,
-            "maxLength": 250
+        "OwnerId": {
+            "description": "Account ID of the owner of the snapshot",
+            "type": "string"
         },
-        "CoverSheetIncluded": {
-            "description": "Required for all TPS Reports submitted after 2/19/1999",
+        "Encrypted": {
+            "description": "Weather the snapshot is encrypted or not",
             "type": "boolean"
+       },
+        "Progress": {
+            "description": "Progress of the snapshot",
+            "type": "string"
         },
-        "DueDate": {
-            "$ref": "#/definitions/InitechDateFormat"
+        "SnapshotId": {
+            "description": "ID of The Snapshot",
+            "type": "string"
         },
-        "ApprovalDate": {
-            "$ref": "#/definitions/InitechDateFormat"
+        "StartTime": {
+            "description": "ID of The Snapshot",
+            "type": "string"
         },
-        "Memo": {
-            "$ref": "#/definitions/Memo"
+        "State": {
+            "description": "State of the snapshot",
+            "type": "string"
         },
-        "SecondCopyOfMemo": {
-            "description": "In case you didn't get the first one.",
-            "$ref": "#/definitions/Memo"
+        "VolumeId": {
+            "description": "ID of The Volume",
+            "type": "string"
         },
-        "TestCode": {
-            "type": "string",
-            "enum": [
-                "NOT_STARTED",
-                "CANCELLED"
-            ]
-        },
-        "Authors": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
+        "VolumeSize": {
+            "description": "ID of The Volume",
+            "type": "string"
         }
     },
     "additionalProperties": false,
     "required": [
-        "TestCode",
-        "Title"
+        "SnapshotId"
     ],
     "readOnlyProperties": [
-        "/properties/TPSCode"
+        "/properties/SnapshotId"
     ],
     "primaryIdentifier": [
-        "/properties/TPSCode"
-    ],
-    "handlers": {
-        "create": {
-            "permissions": [
-                "initech:CreateReport"
-            ]
-        },
-        "read": {
-            "permissions": [
-                "initech:DescribeReport"
-            ]
-        },
-        "update": {
-            "permissions": [
-                "initech:UpdateReport"
-            ]
-        },
-        "delete": {
-            "permissions": [
-                "initech:DeleteReport"
-            ]
-        },
-        "list": {
-            "permissions": [
-                "initech:ListReports"
-            ]
-        }
-    }
+        "/properties/SnapshotId"
+    ]
 }
